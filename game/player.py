@@ -1,9 +1,10 @@
 class Player:
-    def __init__(self, name):
+    def __init__(self, name, hunger=0, thirst=0, energy=0):
         self.name = name
-        self.hunger = 0
-        self.thirst = 0
-        self.energy = 100
+        self.hunger = hunger
+        self.thirst = thirst
+        self.energy = energy
+        self.is_alive = True
 
     def modify_hunger(self, hunger):
         self.hunger += hunger
