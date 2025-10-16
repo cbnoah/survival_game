@@ -43,6 +43,6 @@ class Player:
         self.modify_energy(-15)
 
     def sleep(self):
-        self.modify_energy(30)
+        self.modify_energy(60)
         self.modify_hunger(20)
         self.modify_thirst(20)
