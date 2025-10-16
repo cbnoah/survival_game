@@ -1,0 +1,44 @@
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.hunger = 0
+        self.thirst = 0
+        self.energy = 100
+
+    def modify_hunger(self, hunger):
+        self.hunger += hunger
+        if self.hunger > 100:
+            self.hunger = 100
+        if self.hunger < 0:
+            self.hunger = 0
+        return
+
+    def modify_thirst(self, thirst):
+        self.thirst += thirst
+        if self.thirst > 100:
+            self.thirst = 100
+        if self.thirst < 0:
+            self.thirst = 0
+        return
+
+    def modify_energy(self, energy):
+        self.energy += energy
+        if self.energy > 100:
+            self.energy = 100
+        if self.energy < 0:
+            self.energy = 0
+        return
+
+    def fish(self):
+        self.modify_hunger(-30)
+        self.modify_energy(-20)
+
+
+    def look_for_water(self):
+        self.modify_thirst(-20)
+        self.modify_energy(-15)
+
+    def sleep(self):
+        self.modify_energy(30)
+        self.modify_hunger(20)
+        self.modify_thirst(20)
