@@ -10,6 +10,7 @@ class Player:
         self.hunger += hunger
         if self.hunger > 100:
             self.hunger = 100
+            self.is_alive = False
         if self.hunger < 0:
             self.hunger = 0
         return
@@ -18,6 +19,7 @@ class Player:
         self.thirst += thirst
         if self.thirst > 100:
             self.thirst = 100
+            self.is_alive = False
         if self.thirst < 0:
             self.thirst = 0
         return
@@ -28,6 +30,7 @@ class Player:
             self.energy = 100
         if self.energy < 0:
             self.energy = 0
+            self.is_alive = False
         return
 
     def fish(self):
