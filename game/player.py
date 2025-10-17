@@ -8,7 +8,7 @@ class Player:
 
     def modify_hunger(self, hunger):
         self.hunger += hunger
-        if self.hunger > 100:
+        if self.hunger >= 100:
             self.hunger = 100
             self.is_alive = False
         if self.hunger < 0:
@@ -17,7 +17,7 @@ class Player:
 
     def modify_thirst(self, thirst):
         self.thirst += thirst
-        if self.thirst > 100:
+        if self.thirst >= 100:
             self.thirst = 100
             self.is_alive = False
         if self.thirst < 0:
@@ -28,7 +28,7 @@ class Player:
         self.energy += energy
         if self.energy > 100:
             self.energy = 100
-        if self.energy < 0:
+        if self.energy <= 0:
             self.energy = 0
             self.is_alive = False
         return
