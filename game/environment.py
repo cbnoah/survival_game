@@ -4,11 +4,34 @@ from game.player import Player
 
 
 class Environment:
-    def __init__(self, player: Player):
+    def __init__(self, player: Player, is_in_cli: bool = True):
         self.player = player
+        self.is_in_cli = is_in_cli
 
     def random_event(self):
-        pass
+        event = random.randint(0, 2)
+        match event:
+            case 0:
+                self.rain()
+                if self.is_in_cli:
+                    # CLI feedback
+                    pass
+                else:
+                    pass
+            case 1:
+                if self.is_in_cli:
+                    # CLI feedback
+                    pass
+                else:
+                    pass
+                self.animal_encounter(True)
+            case 2:
+                if self.is_in_cli:
+                    # CLI feedback
+                    pass
+                else:
+                    pass
+                self.new_resources()
 
     def rain(self):
         self.player.modify_thirst(-20)
