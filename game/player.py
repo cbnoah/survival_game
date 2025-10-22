@@ -62,7 +62,7 @@ class Player:
         elif event ==3:
             print ('You found a police station  Enter (yes/no)?')
         elif event ==4:
-            print ('You found a house store  Enter (yes/no)?')
+            print ('You found a store  Enter (yes/no)?')
 
 
 

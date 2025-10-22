@@ -2,16 +2,19 @@ from game.player import Player
 import random
 
 
-def print_status(p: Player):
-    print(f"\nÉtat de {p.name} - faim: {p.hunger}, soif: {p.thirst}, énergie: {p.energy}, vivant: {p.is_alive}\n")
+
+def print_status(p: Player, day_survived: int):
+    print(f"\nÉtat de {p.name} - faim: {p.hunger}, soif: {p.thirst}, énergie: {p.energy}, vivant: {p.is_alive}, day:{day_survived}  \n")
 
 
 def main():
+
+    day_survived = 0
     player = Player("Survivant")
     while True:
         print("=" * 30)
         print("Statut actuel:")
-        print_status(player)
+        print_status(player, day_survived)
         print("=" * 30)
         print("Choisissez une action :")
         print("1 - fish")
@@ -23,13 +26,21 @@ def main():
 
         if choice == "1":
             player.fish()
+            day_survived += 1
+
         elif choice == "2":
             player.sleep()
+            day_survived += 1
+
         elif choice == "3":
             player.look_for_water()
+            day_survived += 1
+
         elif choice == "4":
             random_event = random.randint(0, 4)
             player.explore(random_event)
+            day_survived += 1
+
 
             while True:
                 reponse = input().strip().lower()
@@ -65,7 +76,11 @@ def main():
             print("Choix invalide, réessayez.")
             continue
 
-        print_status(player)
+        print_status(player, day_survived)
+
+        if day_survived == 60:
+            print(f"Félicitations! {player.name} a survécu 60 jours!")
+            break
 
         if not player.is_alive:
             print(f"{player.name} est mort. Fin du jeu.")
