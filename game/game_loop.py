@@ -1,3 +1,5 @@
+from game.CLI import show_cli_status
+from game.CLI import show_cli_action_menu
 from game.player import Player
 import random
 
@@ -12,17 +14,10 @@ def main():
     day_survived = 0
     player = Player("Survivant")
     while True:
-        print("=" * 30)
-        print("Statut actuel:")
-        print_status(player, day_survived)
-        print("=" * 30)
-        print("Choisissez une action :")
-        print("1 - fish")
-        print("2 - sleep")
-        print("3 - look for water")
-        print("4 - random event")
-        print("q - quitter")
+        show_cli_status(player, day_survived)
+        show_cli_action_menu()
         choice = input("Votre choix: ").strip().lower()
+
 
         if choice == "1":
             player.fish()
