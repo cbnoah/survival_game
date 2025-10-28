@@ -5,16 +5,13 @@ import random
 
 
 
-def print_status(p: Player, day_survived: int):
-    print(f"\nÉtat de {p.name} - faim: {p.hunger}, soif: {p.thirst}, énergie: {p.energy}, vivant: {p.is_alive}, day:{day_survived}  \n")
-
 
 def main():
 
     day_survived = 0
     player = Player("Survivant")
     while True:
-        show_cli_status(player, day_survived)
+
         show_cli_action_menu()
         choice = input("Votre choix: ").strip().lower()
 
@@ -71,7 +68,8 @@ def main():
             print("Choix invalide, réessayez.")
             continue
 
-        print_status(player, day_survived)
+        show_cli_status(player, day_survived)
+
 
         if day_survived == 60:
             print(f"Félicitations! {player.name} a survécu 60 jours!")

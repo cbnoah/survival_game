@@ -1,7 +1,7 @@
 import random
 
 class Player:
-    def __init__(self, name, hunger=0, thirst=0, energy=0):
+    def __init__(self, name, hunger=0, thirst=0, energy=100):
         self.name = name
         self.hunger = hunger
         self.thirst = thirst
