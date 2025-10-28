@@ -1,6 +1,7 @@
 from game.CLI import show_cli_status
 from game.CLI import show_cli_action_menu
 from game.player import Player
+from game.daylies_event import daylies_event
 import random
 
 
@@ -68,6 +69,8 @@ def main():
             print("Choix invalide, réessayez.")
             continue
 
+
+        daylies_event(player)
         show_cli_status(player, day_survived)
 
 
