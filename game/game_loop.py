@@ -1,10 +1,10 @@
+from game.CLI import show_cli_status
+from game.CLI import show_cli_action_menu
 from game.player import Player
+from game.daylies_event import daylies_event
 import random
 
 
-
-def print_status(p: Player, day_survived: int):
-    print(f"\nÉtat de {p.name} - faim: {p.hunger}, soif: {p.thirst}, énergie: {p.energy}, vivant: {p.is_alive}, day:{day_survived}  \n")
 
 
 def main():
@@ -12,17 +12,10 @@ def main():
     day_survived = 0
     player = Player("Survivant")
     while True:
-        print("=" * 30)
-        print("Statut actuel:")
-        print_status(player, day_survived)
-        print("=" * 30)
-        print("Choisissez une action :")
-        print("1 - fish")
-        print("2 - sleep")
-        print("3 - look for water")
-        print("4 - random event")
-        print("q - quitter")
+
+        show_cli_action_menu()
         choice = input("Votre choix: ").strip().lower()
+
 
         if choice == "1":
             player.fish()
@@ -76,7 +69,10 @@ def main():
             print("Choix invalide, réessayez.")
             continue
 
-        print_status(player, day_survived)
+
+        daylies_event(player)
+        show_cli_status(player, day_survived)
+
 
         if day_survived == 60:
             print(f"Félicitations! {player.name} a survécu 60 jours!")
