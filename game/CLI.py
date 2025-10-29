@@ -43,3 +43,15 @@ def random_event_prompt(event):
         print('You found a police station  Enter (yes/no)?')
     elif event == 4:
         print('You found a store  Enter (yes/no)?')
+
+
+def get_player_name():
+    """
+    Demande et retourne le pseudo du joueur.
+    """
+    while True:
+        name = input("Entrez votre pseudo: ").strip()
+        if name:
+            return name
+        print("Le pseudo ne peut pas être vide. Réessayez.")
+
