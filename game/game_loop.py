@@ -4,25 +4,28 @@ from game.player import Player
 from game.daylies_event import daylies_event
 import random
 
+from utils.save_handler import save_game
 
 
-
-def main():
+def main(player: Player):
 
     day_survived = 0
-    player = Player("Survivant")
+
     while True:
 
+        show_cli_status(player, day_survived)
         show_cli_action_menu()
         choice = input("Votre choix: ").strip().lower()
 
 
         if choice == "1":
             player.fish()
+            player.modify_energy(10)
             day_survived += 1
 
         elif choice == "2":
             player.sleep()
+
             day_survived += 1
 
         elif choice == "3":
@@ -33,7 +36,6 @@ def main():
             random_event = random.randint(0, 4)
             player.explore(random_event)
             day_survived += 1
-
 
             while True:
                 reponse = input().strip().lower()
@@ -62,16 +64,23 @@ def main():
                     break
                 else:
                     print("Réponse invalide. Tapez 'yes' ou 'no'.")
+
+
+        elif choice == "s":
+            save_game(player)
+            print("Jeu sauvegardé.")
+            continue
+
         elif choice == "q":
             print("Quit.")
             break
+
         else:
             print("Choix invalide, réessayez.")
             continue
 
 
         daylies_event(player)
-        show_cli_status(player, day_survived)
 
 
         if day_survived == 60:
@@ -81,3 +90,5 @@ def main():
         if not player.is_alive:
             print(f"{player.name} est mort. Fin du jeu.")
             break
+
+

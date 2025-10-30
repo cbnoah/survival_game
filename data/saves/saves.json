@@ -1,0 +1,6 @@
+{
+    "name": "Survivant",
+    "hunger": 5,
+    "thirst": 10,
+    "energy": 75
+}
