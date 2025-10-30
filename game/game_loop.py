@@ -1,7 +1,7 @@
 from game.CLI import show_cli_status
 from game.CLI import show_cli_action_menu
 from game.player import Player
-from game.daylies_event import daylies_event
+from game.daily_event import daily_event
 import random
 
 from utils.save_handler import save_game
@@ -80,7 +80,7 @@ def main(player: Player):
             continue
 
 
-        daylies_event(player)
+        daily_event(player)
 
 
         if day_survived == 60:

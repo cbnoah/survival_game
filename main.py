@@ -17,11 +17,11 @@ if __name__ == "__main__":
                     player = load_game()
                     main(Player(player.name, player.hunger, player.thirst, player.energy))
                 except Exception:
-                    print("Impossible de charger la sauvegarde.")
+                    print("Save unloadable or corrupted.")
             else:
-                print("Aucune sauvegarde disponible.")
+                print("No saved game found.")
         elif choice == "3":
-            print("Quitter le jeu.")
+            print("Exiting the game.")
             break
         else:
-            print("Choix invalide, réessayez.")
+            print("Unrecognized choice. Please try again.")
