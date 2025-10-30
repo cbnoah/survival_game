@@ -14,8 +14,8 @@ if __name__ == "__main__":
         elif choice == "2":
             if is_there_info():
                 try:
-                    player = load_game()
-                    main(Player(player.name, player.hunger, player.thirst, player.energy))
+                    save_info = load_game()
+                    main(Player(save_info["player"].name, save_info["player"].hunger, save_info["player"].thirst, save_info["player"].energy), save_info['days_survived'])
                 except Exception:
                     print("Save unloadable or corrupted.")
             else:
