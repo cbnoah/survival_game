@@ -15,7 +15,6 @@ def show_cli_status(p:Player, day_survived):
     print(f"Hunger: {gauge_drawer(100-p.hunger, 100)}")
     print(f"Thirst: {gauge_drawer(100-p.thirst, 100)}")
     print(f"Energy: {gauge_drawer(p.energy,100)}")
-    print(f"Is Alive: {p.is_alive}")
     print(f'#############################################')
 
 
@@ -25,7 +24,7 @@ def get_cli_user_choice():
 
 
 def show_cli_action_menu():
-    print("Choose an action:")
+    print("Choose your daily action:")
     print("1 - Fish")
     print("2 - Sleep")
     print("3 - Look for Water")
@@ -48,11 +47,11 @@ def random_event_prompt(event):
 
 def get_player_name():
     """
-    Demande et retourne le pseudo du joueur.
+    Ask the user for their player name via CLI.
     """
     while True:
-        name = input("Entrez votre pseudo: ").strip()
+        name = input("Write your nickname: ").strip()
         if name:
             return name
-        print("Le pseudo ne peut pas être vide. Réessayez.")
+        print("The nickname cannot be empty. Please try again.")
 
