@@ -37,7 +37,7 @@ def is_there_info() -> bool:
     try:
         with open('./data/saves/saves.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
-            if data['name'] == '':
+            if data == {} or data is None:
                 return False
             return True
     except FileNotFoundError:
