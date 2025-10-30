@@ -13,7 +13,7 @@ def main(player: Player, day_survived: int = 0) -> None:
 
         show_cli_status(player, day_survived)
         show_cli_action_menu()
-        choice = input("Votre choix: ").strip().lower()
+        choice = input("Your Choice: ").strip().lower()
 
 
         if choice == "1":
@@ -36,45 +36,45 @@ def main(player: Player, day_survived: int = 0) -> None:
             day_survived += 1
 
             while True:
-                reponse = input().strip().lower()
-                if reponse in ("yes", "y", "oui", "o"):
+                response = input().strip().lower()
+                if response in ("yes", "y", "oui", "o"):
                     if random_event == 0:  # casino
                         player.modify_hunger(5)
                         player.modify_energy(-10)
-                        print("Vous entrez dans le casino.")
+                        print("You enter the casino.")
                     elif random_event == 1:  # school
                         player.modify_energy(10)
-                        print("Vous entrez dans l'école.")
+                        print("You enter the school.")
                     elif random_event == 2:  # hospital
                         player.modify_energy(20)
                         player.modify_thirst(-10)
-                        print("Vous entrez dans l'hôpital.")
+                        print("You enter the hospital.")
                     elif random_event == 3:  # police station
                         player.modify_energy(5)
-                        print("Vous entrez dans le poste de police.")
+                        print("You enter the police station.")
                     elif random_event == 4:  # house store
                         player.modify_hunger(-15)
                         player.modify_thirst(-10)
-                        print("Vous entrez dans le magasin.")
+                        print("You enter the store.")
                     break
-                elif reponse in ("no", "n", "non"):
-                    print("Vous continuez votre chemin.")
+                elif response in ("no", "n", "non"):
+                    print("You decided not to enter.")
                     break
                 else:
-                    print("Réponse invalide. Tapez 'yes' ou 'no'.")
+                    print("Invalid choice. Please enter yes or no.")
 
 
         elif choice == "s":
             save_game(player, day_survived)
-            print("Jeu sauvegardé.")
+            print("Game saved.")
             continue
 
         elif choice == "q":
-            print("Quit.")
+            print("Leaving the game.")
             break
 
         else:
-            print("Choix invalide, réessayez.")
+            print("Invalid choice, please try again.")
             continue
 
 
@@ -82,11 +82,11 @@ def main(player: Player, day_survived: int = 0) -> None:
 
 
         if day_survived >= 60:
-            print(f"Félicitations! {player.name} a survécu 60 jours!")
+            print(f"Congratulations! {player.name} has survived for 60 days and won the game!")
             break
 
         if not player.is_alive:
-            print(f"{player.name} est mort. Fin du jeu.")
+            print(f"{player.name} is no longer alive. Game over.")
             break
 
 
