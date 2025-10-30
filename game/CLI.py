@@ -1,4 +1,5 @@
 from game.player import Player
+from utils.gauges import gauge_drawer
 
 
 def show_cli_menu():
@@ -11,9 +12,9 @@ def show_cli_menu():
 def show_cli_status(p:Player, day_survived):
     print(f'#############################################')
     print(f"Days Survived: {day_survived}")
-    print(f"Hunger: {p.hunger}")
-    print(f"Thirst: {p.thirst}")
-    print(f"Energy: {p.energy}")
+    print(f"Hunger: {gauge_drawer(100-p.hunger, 100)}")
+    print(f"Thirst: {gauge_drawer(100-p.thirst, 100)}")
+    print(f"Energy: {gauge_drawer(p.energy,100)}")
     print(f"Is Alive: {p.is_alive}")
     print(f'#############################################')
 
