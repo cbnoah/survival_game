@@ -7,9 +7,7 @@ import random
 from utils.save_handler import save_game
 
 
-def main(player: Player):
-
-    day_survived = 0
+def main(player: Player, day_survived: int = 0) -> None:
 
     while True:
 
@@ -67,7 +65,7 @@ def main(player: Player):
 
 
         elif choice == "s":
-            save_game(player)
+            save_game(player, day_survived)
             print("Jeu sauvegardé.")
             continue
 
@@ -83,7 +81,7 @@ def main(player: Player):
         daily_event(player)
 
 
-        if day_survived == 60:
+        if day_survived >= 60:
             print(f"Félicitations! {player.name} a survécu 60 jours!")
             break
 
