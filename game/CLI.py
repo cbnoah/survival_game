@@ -32,18 +32,6 @@ def show_cli_action_menu():
     print("q - Quit Game")
     print("s - Save Game")
 
-def random_event_prompt(event):
-    if event == 0:
-        print('You found a casino  Enter (yes/no)?')
-    elif event == 1:
-        print('You found a school  Enter (yes/no)?')
-    elif event == 2:
-        print('You found a hospital    Enter (yes/no)?')
-    elif event == 3:
-        print('You found a police station  Enter (yes/no)?')
-    elif event == 4:
-        print('You found a store  Enter (yes/no)?')
-
 
 def get_player_name():
     """
