@@ -1,4 +1,4 @@
-from game.CLI import show_cli_menu, get_cli_user_choice, show_cli_status , get_player_name
+from game.CLI import show_cli_menu, get_cli_user_choice, get_player_name
 from game.game_loop import main
 from game.player import Player
 from utils.save_handler import load_game, is_there_info
@@ -24,4 +24,4 @@ if __name__ == "__main__":
             print("Exiting the game.")
             break
         else:
-            print("Unrecognized choice. Please try again.")
+            print("Incorrect answer. Please try again.")
