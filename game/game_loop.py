@@ -42,20 +42,25 @@ def main(player: Player, day_survived: int = 0) -> None:
                         player.modify_hunger(5)
                         player.modify_energy(-10)
                         print("You enter the casino.")
+                        print("You gambled too much you lost energy. You feel a bit hungry now.")
                     elif random_event == 1:  # school
                         player.modify_energy(10)
                         print("You enter the school.")
+                        print("You take a short nap in the classroom. You have gained some energy.")
                     elif random_event == 2:  # hospital
                         player.modify_energy(20)
                         player.modify_thirst(-10)
                         print("You enter the hospital.")
+                        print("You take a short nap in the hospital and found some filtered water.")
                     elif random_event == 3:  # police station
                         player.modify_energy(5)
                         print("You enter the police station.")
+                        print("You found a quiet room to rest. You feel a bit more energetic.")
                     elif random_event == 4:  # house store
                         player.modify_hunger(-15)
                         player.modify_thirst(-10)
                         print("You enter the store.")
+                        print("You found some canned food and bottled water. Your hunger and thirst decrease.")
                     break
                 elif response in ("no", "n", "non"):
                     print("You decided not to enter.")
