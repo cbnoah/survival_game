@@ -1,4 +1,3 @@
-# game/daily_event.py
 import random
 
 
